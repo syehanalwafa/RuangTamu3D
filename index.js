@@ -81,6 +81,14 @@ lantai.rotation.x = -Math.PI / 2;
 lantai.position.y = 0;
 scene.add(lantai);
 
+// Dinding
+const geometry = new THREE.BoxGeometry( 10, 0.5, 1 );
+const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+const cube = new THREE.Mesh( geometry, material );
+cube.position.y = -Math.PI/2;
+cube.position.set(-0, 0, 3);
+scene.add( cube );
+
 function draw() {
   // =========== GPT ==============
   const delta = clock.getDelta();
