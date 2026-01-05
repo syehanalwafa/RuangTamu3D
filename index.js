@@ -81,13 +81,46 @@ lantai.rotation.x = -Math.PI / 2;
 lantai.position.y = 0;
 scene.add(lantai);
 
-// Dinding
-const geometry = new THREE.BoxGeometry( 10, 0.5, 1 );
+// Dinding gak pake gpt
+// Dinding 1
+const geometry = new THREE.BoxGeometry( 10, 10, 0.5 );
 const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 const cube = new THREE.Mesh( geometry, material );
 cube.position.y = -Math.PI/2;
-cube.position.set(-0, 0, 3);
+cube.position.set(-0, 5, 5);
 scene.add( cube );
+
+// Dinding 2
+const geometry2 = new THREE.BoxGeometry( 10, 10, 0.5 );
+const material2 = new THREE.MeshBasicMaterial( { color: 0xffffff } );
+const cube2 = new THREE.Mesh( geometry2, material2 );
+cube2.position.y = -Math.PI/2;
+cube2.position.set(-0, 5, -5);
+scene.add( cube2 );
+
+// Dinding 3
+const geometry3 = new THREE.BoxGeometry( 0.5, 10, 10 );
+const material3 = new THREE.MeshBasicMaterial( { color: 0xfffff } );
+const cube3 = new THREE.Mesh( geometry3, material3 );
+cube3.position.y = -Math.PI/2;
+cube3.position.set(-5, 5, 0);
+scene.add( cube3 );
+
+// Dinding 4
+const geometry4 = new THREE.BoxGeometry( 0.5, 10, 10 );
+const material4 = new THREE.MeshBasicMaterial( { color: 0xfffff } );
+const cube4 = new THREE.Mesh( geometry4, material4 );
+cube4.position.y = -Math.PI/2;
+cube4.position.set(5, 5, 0);
+scene.add( cube4 );
+
+// atap
+const geometry5 = new THREE.BoxGeometry( 10, 2, 10 );
+const material5 = new THREE.MeshBasicMaterial( { color: 0xf12345 } );
+const cube5 = new THREE.Mesh( geometry5, material5 );
+cube5.position.y = -Math.PI/2;
+cube5.position.set(0, 10, 0);
+scene.add( cube5 );
 
 function draw() {
   // =========== GPT ==============
