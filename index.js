@@ -186,26 +186,92 @@ scene.add(cube5);
 const loader = new GLTFLoader();
 
 // Sova 1
-loader.load("Assets/Models/Sofa_01_4k/Sofa_01_4k.gltf", (gltf) => {
+loader.load("Assets/Models/sofa_02_4k/sofa_02_4k.gltf", (gltf) => {
   const sofa1 = gltf.scene;
 
   sofa1.scale.set(2, 2, 2);
-  sofa1.position.set(0, 0, 0);
+  sofa1.position.set(0, 0, -1);
   sofa1.rotation.y = 0;
 
   scene.add(sofa1);
 });
 
 // Sova 2
-loader.load("Assets/Models/Sofa_01_4k/Sofa_01_4k.gltf", (gltf) => {
+loader.load("Assets/Models/sofa_02_4k/sofa_02_4k.gltf", (gltf) => {
   const sofa2 = gltf.scene;
 
   sofa2.scale.set(2, 2, 2);
-  sofa2.position.set(0, 0, 3);  
+  sofa2.position.set(0, 0, 4);  
   sofa2.rotation.y = Math.PI;     
 
   scene.add(sofa2);
 });
+
+// Meja kopi
+let coffeeTable;
+loader.load(
+  "Assets/Models/gothic_coffee_table_4k/gothic_coffee_table_4k.gltf", (gltf) => {
+    coffeeTable = gltf.scene;
+
+    coffeeTable.scale.set(1.5, 1.5, 1.5);
+    coffeeTable.position.set(0, 0, 1.5);
+    coffeeTable.rotation.y = 0;
+
+    scene.add(coffeeTable);
+
+    loadChess();
+  }
+);
+
+// Catur
+function loadChess() {
+  loader.load(
+    "Assets/Models/chess_set_4k/chess_set_4k.gltf", (gltf) => {
+      const chess = gltf.scene;
+
+      chess.scale.set(0.4, 0.4, 0.4);
+      chess.position.set(0, 0.55, 0);
+      chess.rotation.y = Math.PI;
+
+      coffeeTable.add(chess);
+
+      loadGoblets();
+    }
+  );
+}
+
+// Goblets
+function loadGoblets() {
+  loader.load(
+    "Assets/Models/brass_goblets_4k/brass_goblets_4k.gltf", (gltf) => {
+      const goblets = gltf.scene;
+
+      goblets.scale.set(0.3, 0.3, 0.3); 
+      goblets.position.set(0.4, 0.55, 0);
+      goblets.rotation.y = Math.PI / 4; 
+
+      coffeeTable.add(goblets);
+      loadSuitcase("right");
+
+    }
+  );
+}
+
+// Suitcase
+function loadSuitcase(side = "right") {
+  loader.load(
+    "Assets/Models/vintage_suitcase_4k/vintage_suitcase_4k.gltf", (gltf) => {
+      const suitcase = gltf.scene;
+
+      suitcase.scale.set(0.8, 0.8, 0.8);
+      const offsetX = side === "right" ? 1.2 : -1.2;
+      suitcase.position.set(coffeeTable.position.x + offsetX, 0, coffeeTable.position.z);
+      suitcase.rotation.y = Math.PI / 2; 
+      scene.add(suitcase);
+    }
+  );
+}
+
 
 
 
