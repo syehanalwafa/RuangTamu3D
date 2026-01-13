@@ -242,7 +242,8 @@ loader.load("Assets/Models/sofa_02_4k/sofa_02_4k.gltf", (gltf) => {
 
   // simpan material sofa2 sebagai default
   sofa2.traverse((child) => {
-    if (child.isMesh && !defaultMaterial) defaultMaterial = child.material.clone();
+    if (child.isMesh && !defaultMaterial)
+      defaultMaterial = child.material.clone();
   });
 });
 
@@ -260,9 +261,15 @@ function changeSofaTexture(color) {
       });
       break;
     case "brown":
-      albedo = texLoader.load("Assets/Texture/SofaTextures/brown_leather_albedo_4k.jpg");
-      normal = texLoader.load("Assets/Texture/SofaTextures/brown_leather_nor_gl_4k.jpg");
-      roughness = texLoader.load("Assets/Texture/SofaTextures/brown_leather_rough_4k.jpg");
+      albedo = texLoader.load(
+        "Assets/Texture/SofaTextures/brown_leather_albedo_4k.jpg"
+      );
+      normal = texLoader.load(
+        "Assets/Texture/SofaTextures/brown_leather_nor_gl_4k.jpg"
+      );
+      roughness = texLoader.load(
+        "Assets/Texture/SofaTextures/brown_leather_rough_4k.jpg"
+      );
       sofaMesh.forEach((mesh) => {
         mesh.material.map = albedo;
         mesh.material.normalMap = normal;
@@ -271,9 +278,15 @@ function changeSofaTexture(color) {
       });
       break;
     case "red":
-      albedo = texLoader.load("Assets/Texture/SofaTextures/fabric_pattern_07_col_1_4k.jpg");
-      normal = texLoader.load("Assets/Texture/SofaTextures/fabric_pattern_07_nor_gl_4k.jpg");
-      roughness = texLoader.load("Assets/Texture/SofaTextures/fabric_pattern_07_rough_4k.jpg");
+      albedo = texLoader.load(
+        "Assets/Texture/SofaTextures/fabric_pattern_07_col_1_4k.jpg"
+      );
+      normal = texLoader.load(
+        "Assets/Texture/SofaTextures/fabric_pattern_07_nor_gl_4k.jpg"
+      );
+      roughness = texLoader.load(
+        "Assets/Texture/SofaTextures/fabric_pattern_07_rough_4k.jpg"
+      );
       sofaMesh.forEach((mesh) => {
         mesh.material.map = albedo;
         mesh.material.normalMap = normal;
@@ -344,8 +357,8 @@ function updateUIPosition() {
 
     // project ke 2D screen
     const vector = sofaPos.clone().project(cam);
-    const x = (vector.x + 1) / 2 * window.innerWidth;
-    const y = (-vector.y + 1) / 2 * window.innerHeight;
+    const x = ((vector.x + 1) / 2) * window.innerWidth;
+    const y = ((-vector.y + 1) / 2) * window.innerHeight;
 
     uiDiv.style.left = x + "px";
     uiDiv.style.top = y + "px";
@@ -404,7 +417,7 @@ loader.load(
   "Assets/Models/FirePlace/lincoln_-_traditional_ethanol_fireplace.glb",
   (gltf) => {
     const FirePlace = gltf.scene;
-    FirePlace.scale.set(5, 2, 5);
+    FirePlace.scale.set(2, 2, 2);
     FirePlace.position.set(0, -0.35, 5.7);
     FirePlace.rotation.y = Math.PI;
     scene.add(FirePlace);
@@ -421,6 +434,103 @@ loader.load(
     scene.add(plant);
   }
 );
+
+loader.load(
+  "Assets/Models/monstera_deliciosa_potted_mid-century_plant/scene.gltf",
+  (gltf) => {
+    const plant2 = gltf.scene;
+    plant2.scale.set(0.6, 0.6, 0.6);
+    plant2.position.set(5.6, 0.25, 5.59);
+    // plant2.rotation.y = Math.PI;
+    scene.add(plant2);
+  }
+);
+loader.load("Assets/Models/antique_wooden_bookcase_-_game_model/scene.gltf", (gltf) => {
+  const rakBuku = gltf.scene;
+  rakBuku.scale.set(0.5, 0.5, 0.5);
+  rakBuku.position.set(2.2, 0, 5.9);
+  rakBuku.rotation.y = Math.PI;
+  scene.add(rakBuku);
+
+  rakBuku.traverse((child) => {
+    if (child.isMesh) {
+      console.log(child.material);
+    }
+  });
+});
+
+loader.load("Assets/Models/antique_wooden_bookcase_-_game_model/scene.gltf", (gltf) => {
+  const rakBuku2 = gltf.scene;
+  rakBuku2.scale.set(0.5, 0.5, 0.5);
+  rakBuku2.position.set(4, 0, 5.9);
+  rakBuku2.rotation.y = Math.PI;
+  scene.add(rakBuku2);
+
+  rakBuku2.traverse((child) => {
+    if (child.isMesh) {
+      console.log(child.material);
+    }
+  });
+});
+
+loader.load("Assets/Models/antique_wooden_bookcase_-_game_model/scene.gltf", (gltf) => {
+  const rakBuku3 = gltf.scene;
+  rakBuku3.scale.set(0.5, 0.5, 0.5);
+  rakBuku3.position.set(-2.2, 0, 5.9);
+  rakBuku3.rotation.y = Math.PI;
+  scene.add(rakBuku3);
+
+  rakBuku3.traverse((child) => {
+    if (child.isMesh) {
+      console.log(child.material);
+    }
+  });
+});
+
+loader.load("Assets/Models/antique_wooden_bookcase_-_game_model/scene.gltf", (gltf) => {
+  const rakBuku4 = gltf.scene;
+  rakBuku4.scale.set(0.5, 0.5, 0.5);
+  rakBuku4.position.set(-4, 0, 5.9);
+  rakBuku4.rotation.y = Math.PI;
+  scene.add(rakBuku4);
+
+  rakBuku4.traverse((child) => {
+    if (child.isMesh) {
+      console.log(child.material);
+    }
+  });
+});
+
+loader.load("Assets/Models/tv_cabinet/scene.gltf", (gltf) => {
+  const tvCabinet = gltf.scene;
+  tvCabinet.scale.set(0.09, 0.09, 0.09);
+  tvCabinet.position.set(0, 0, -3.8);
+  tvCabinet.rotation.y = 0;
+  tvCabinet.rotation.y = -Math.PI/90;
+  scene.add(tvCabinet);
+
+  tvCabinet.traverse((child) => {
+    if (child.isMesh) {
+      console.log(child.material);
+    }
+  });
+});
+
+loader.load("Assets/Models/sofa_web/scene.gltf", (gltf) => {
+  const sofaTv = gltf.scene;
+  sofaTv.scale.set(0.002, 0.002, 0.002);
+  sofaTv.position.set(0, 0, -2);
+  sofaTv.rotation.y = 0;
+  sofaTv.rotation.y = -Math.PI;
+  scene.add(sofaTv);
+
+  sofaTv.traverse((child) => {
+    if (child.isMesh) {
+      console.log(child.material);
+    }
+  });
+});
+
 
 function draw() {
   // =========== GPT ==============
