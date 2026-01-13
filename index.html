@@ -1,11 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RUANG TAMU 3D</title>
-</head>
-<body>
+    <style>
+      #textureUI {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+      #textureUI button {
+        width: 80px;
+        height: 80px;
+        border: 2px solid white;
+        border-radius: 8px;
+        background-size: cover;
+        background-position: center;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="textureUI">
+      <button id="defaultBtn"></button>
+      <button id="brownBtn"></button>
+      <button id="redBtn"></button>
+    </div>
     <script type="module" src="index.js"></script>
-</body>
+  </body>
 </html>
