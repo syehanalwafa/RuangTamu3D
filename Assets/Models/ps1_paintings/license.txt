@@ -1,0 +1,11 @@
+Model Information:
+* title:	PS1 Paintings
+* source:	https://sketchfab.com/3d-models/ps1-paintings-a95c65a8a8a1478f9e899bd1dfa9bbd9
+* author:	rrsandman (https://sketchfab.com/rrsandman)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "PS1 Paintings" (https://sketchfab.com/3d-models/ps1-paintings-a95c65a8a8a1478f9e899bd1dfa9bbd9) by rrsandman (https://sketchfab.com/rrsandman) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

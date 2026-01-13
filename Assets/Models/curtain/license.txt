@@ -1,0 +1,11 @@
+Model Information:
+* title:	Curtain
+* source:	https://sketchfab.com/3d-models/curtain-bbaa4159444248c5a9c340b9dec74199
+* author:	itsrit3sh (https://sketchfab.com/itsrit3sh)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Curtain" (https://sketchfab.com/3d-models/curtain-bbaa4159444248c5a9c340b9dec74199) by itsrit3sh (https://sketchfab.com/itsrit3sh) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

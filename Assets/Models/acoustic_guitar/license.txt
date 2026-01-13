@@ -1,0 +1,11 @@
+Model Information:
+* title:	Acoustic Guitar
+* source:	https://sketchfab.com/3d-models/acoustic-guitar-402aa42f0faa4845878cf005e66a1046
+* author:	Blaž Mraz (https://sketchfab.com/Mraz3D)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Acoustic Guitar" (https://sketchfab.com/3d-models/acoustic-guitar-402aa42f0faa4845878cf005e66a1046) by Blaž Mraz (https://sketchfab.com/Mraz3D) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

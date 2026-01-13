@@ -1,0 +1,8 @@
+Model Information:
+* title:	[Pokemon OR/AS] Pikachu Doll
+* source:	https://sketchfab.com/3d-models/pokemon-oras-pikachu-doll-98e09a3ea5c8457bb116e8a6ced14020
+* author:	StarlightLambda64 (https://sketchfab.com/Starlight_lambda64)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

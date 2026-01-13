@@ -1,0 +1,11 @@
+Model Information:
+* title:	Dusty old piano
+* source:	https://sketchfab.com/3d-models/dusty-old-piano-abdb095ac525489a92236227f72631c4
+* author:	Fredrik (https://sketchfab.com/kird3rf)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Dusty old piano" (https://sketchfab.com/3d-models/dusty-old-piano-abdb095ac525489a92236227f72631c4) by Fredrik (https://sketchfab.com/kird3rf) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

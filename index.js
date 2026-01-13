@@ -222,13 +222,18 @@ const texLoader = new THREE.TextureLoader();
 loader.load("Assets/Models/sofa_02_4k/sofa_02_4k.gltf", (gltf) => {
   const sofa1 = gltf.scene;
   sofa1.scale.set(1, 1, 1);
-  sofa1.position.set(0, 0, -0.2);
+  sofa1.position.set(0, 0, 2);
+  sofa1.rotation.y = Math.PI;
 
-  // ambil semua mesh sofa supaya bisa ganti texture
   sofa1.traverse((child) => {
-    if (child.isMesh) sofaMesh.push(child);
+    if (child.isMesh) {
+      sofaMesh.push(child);
+      if (!defaultMaterial) {
+        defaultMaterial = child.material.clone();
+      }
+      child.rotation.y += Math.PI;
+    }
   });
-
   roomObjects.add(sofa1);
 });
 
@@ -236,12 +241,27 @@ loader.load("Assets/Models/sofa_02_4k/sofa_02_4k.gltf", (gltf) => {
 loader.load("Assets/Models/sofa_02_4k/sofa_02_4k.gltf", (gltf) => {
   const sofa2 = gltf.scene;
   sofa2.scale.set(1, 1, 1);
-  sofa2.position.set(0, 0, 3);
-  sofa2.rotation.y = Math.PI;
+  sofa2.position.set(-1.8, 0, 3.5);
+  sofa2.rotation.y = Math.PI / 2;
   roomObjects.add(sofa2);
 
   // simpan material sofa2 sebagai default
   sofa2.traverse((child) => {
+    if (child.isMesh && !defaultMaterial)
+      defaultMaterial = child.material.clone();
+  });
+});
+
+// sofa 3 (default)
+loader.load("Assets/Models/sofa_02_4k/sofa_02_4k.gltf", (gltf) => {
+  const sofa3 = gltf.scene;
+  sofa3.scale.set(1, 1, 1);
+  sofa3.position.set(1.8, 0, 3.5);
+  sofa3.rotation.y = Math.PI / 2 + Math.PI;
+  roomObjects.add(sofa3);
+
+  // simpan material sofa2 sebagai default
+  sofa3.traverse((child) => {
     if (child.isMesh && !defaultMaterial)
       defaultMaterial = child.material.clone();
   });
@@ -372,7 +392,12 @@ loader.load(
   (gltf) => {
     coffeeTable = gltf.scene;
     coffeeTable.scale.set(0.8, 0.8, 0.8);
-    coffeeTable.position.set(0, 0, 1.5);
+    coffeeTable.position.set(0, 0, 3.5);
+    coffeeTable.traverse((child) => {
+    if (child.isMesh) {
+      child.rotation.y += Math.PI;
+    }
+    });
     roomObjects.add(coffeeTable);
 
     // Catur
@@ -531,6 +556,246 @@ loader.load("Assets/Models/sofa_web/scene.gltf", (gltf) => {
   });
 });
 
+loader.load(
+  "Assets/Models/old_persian_carpet/scene.gltf",
+  (gltf) => {
+    const carpet = gltf.scene;
+    carpet.scale.set(1, 1, 1);
+    carpet.position.set(0, 0.01, 3.2);
+    carpet.rotation.y = Math.PI / 2;
+
+    roomObjects.add(carpet);
+  }
+);
+
+loader.load(
+  "Assets/Models/smoldering_logs_red_light_bonfire_l/scene.gltf",
+  (gltf) => {
+    const fireLogs = gltf.scene;
+
+    fireLogs.scale.set(0.4, 0.4, 0.4);
+    fireLogs.position.set(0, 0.6, 5.6);
+    fireLogs.rotation.y = Math.PI;
+
+
+    //fireLogs.traverse((child) => {
+    //  if (child.isMesh && child.material) {
+    //    child.material.emissive = new THREE.Color(0xff3300);
+    //    child.material.emissiveIntensity = 1.2;
+    //  }
+    //});
+
+    roomObjects.add(fireLogs);
+
+    //const fireLight = new THREE.PointLight(0xff6622, 2, 6);
+    //fireLight.position.set(0, 1.1, 5.6);
+    //roomObjects.add(fireLight);
+//
+    //fireLogs.userData.fireLight = fireLight;
+  }
+);
+
+
+let floorLamp = null;
+let floorLampLight = null;
+let lampOn = true;
+
+//window.addEventListener("mousedown", (e) => {
+//  if (!floorLamp) return;
+//
+//  mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+//  mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+//
+//  raycaster.setFromCamera(mouse, cam);
+//
+//  const hit = raycaster.intersectObject(floorLamp, true);
+//
+//  if (hit.length > 0) {
+//    lampOn = !lampOn;
+//
+//    // ON / OFF LIGHT
+//    floorLampLight.intensity = lampOn ? 1.5 : 0;
+//    floorLamp.traverse((child) => {
+//      if (child.isMesh && child.material && child.material.emissive) {
+//        child.material.emissiveIntensity = lampOn ? 0.8 : 0;
+//      }
+//    });
+//  }
+//});
+loader.load(
+  "Assets/Models/floor_lamp/scene.gltf",
+  (gltf) => {
+    console.log("FLOOR LAMP LOADED");
+
+    floorLamp = gltf.scene;
+    floorLamp.scale.set(0.6, 0.6, 0.6);
+    floorLamp.position.set(1.1, 0.1, 2.2);
+    floorLamp.rotation.y = Math.PI;
+
+    floorLamp.traverse((child) => {
+      if (
+        child.isMesh &&
+        child.material &&
+        (
+          child.name.toLowerCase().includes("bulb") ||
+          child.name.toLowerCase().includes("shade") ||
+          child.name.toLowerCase().includes("glass")
+        )
+      ) {
+        child.material.emissive = new THREE.Color(0xffe0b3);
+        child.material.emissiveIntensity = 0.8;
+      }
+    });
+
+    floorLampLight = new THREE.PointLight(0xffe0b3, 1.5, 6);
+    floorLampLight.position.set(0, 1.4, 0); 
+    floorLamp.add(floorLampLight);
+
+    roomObjects.add(floorLamp);
+  }
+);
+
+// Buku di meja
+loader.load(
+  "Assets/Models/medieval_open_book_1/scene.gltf",
+  (gltf) => {
+    const book = gltf.scene;
+
+    book.scale.set(0.25, 0.25, 0.25);
+    book.rotation.x = Math.PI / 2;
+    book.position.set(0.1, 0.55, -0.4);
+    book.rotation.y = Math.PI;
+
+    coffeeTable.add(book);
+  }
+);
+
+//PAINTINGS
+loader.load(
+  "Assets/Models/ps1_paintings/scene.gltf",
+  (gltf) => {
+    const painting = gltf.scene;
+
+    painting.scale.set(0.8, 0.8, 0.8);
+
+    painting.position.set(5.7, 1.6, 0);
+    painting.rotation.y = Math.PI;
+
+
+    scene.add(painting);
+  }
+);
+
+loader.load(
+  "Assets/Models/double_door_window/scene.gltf",
+  (gltf) => {
+    const door = gltf.scene;
+
+    const box = new THREE.Box3().setFromObject(door);
+    const size = new THREE.Vector3();
+    box.getSize(size);
+
+    const targetHeight = 2;
+    const scale = targetHeight / size.y;
+    door.scale.setScalar(scale);
+
+    door.position.set(-5.8, 0, 0);
+    door.rotation.y = Math.PI / 2;
+
+    scene.add(door);
+  }
+);
+
+
+loader.load(
+  "Assets/Models/curtain/scene.gltf",
+  (gltf) => {
+    const curtain = gltf.scene;
+
+    curtain.scale.set(0.9, 0.9, 0.9);
+    curtain.position.set(-5.6, 0, -4);
+    curtain.rotation.y = Math.PI / 2;
+
+    scene.add(curtain);
+  }
+);
+
+// loader.load(
+//   "Assets/Models/curtain/scene.gltf",
+//   (gltf) => {
+//     const curtain2 = gltf.scene;
+
+//     curtain2.scale.set(0.9, 0.9, 0.9);
+//     curtain2.position.set(-5.6, 0, -2);
+//     curtain2.rotation.y = Math.PI / 2;
+
+//     scene.add(curtain2);
+//   }
+// );
+
+loader.load(
+  "Assets/Models/acoustic_guitar/scene.gltf",
+  (gltf) => {
+    const guitar = gltf.scene;
+
+    guitar.scale.set(0.9, 0.9, 0.9);
+    guitar.position.set(-5.7, 0, 4);
+    guitar.rotation.y = Math.PI / 2;
+
+    scene.add(guitar);
+  }
+);
+
+loader.load(
+  "Assets/Models/dusty_old_piano/scene.gltf",
+  (gltf) => {
+    const piano = gltf.scene;
+
+    piano.scale.set(0.6, 0.6, 0.6);
+    piano.position.set(-5.7, 0, 2.5);
+
+    scene.add(piano);
+  }
+);
+
+loader.load(
+  "Assets/Models/sillent_hill_pt_paintings__pack_1/scene.gltf",
+  (gltf) => {
+    const paintingPT = gltf.scene;
+
+    paintingPT.scale.set(0.15, 0.15, 0.15);
+    paintingPT.position.set(-5.7, 1.3, 3);
+
+    scene.add(paintingPT);
+  }
+);
+
+loader.load(
+  "Assets/Models/mirror_b/scene.gltf",
+  (gltf) => {
+    const mirror = gltf.scene;
+
+    mirror.scale.set(0.9, 0.9, 0.9);
+    mirror.position.set(-5.7, 0, -2);
+    mirror.rotation.y = Math.PI / 2;
+
+    scene.add(mirror);
+  }
+);
+
+loader.load(
+  "Assets/Models/pokemon_oras_pikachu_doll/scene.gltf",
+  (gltf) => {
+    const pikachu = gltf.scene;
+
+    pikachu.scale.set(0.1, 0.1, 0.1);
+    pikachu.position.set(-0.4, 0.55, -0.4); 
+    pikachu.rotation.y = Math.PI / 2; 
+
+    coffeeTable.add(pikachu);
+  }
+);
+
 
 function draw() {
   // =========== GPT ==============
@@ -549,6 +814,10 @@ function draw() {
 
   controls.moveRight(-velocity.x);
   controls.moveForward(-velocity.z);
+
+    // ====== BOUNDARY TEMBOK  ======
+  cam.position.x = THREE.MathUtils.clamp(cam.position.x, -5.4, 5.4);
+  cam.position.z = THREE.MathUtils.clamp(cam.position.z, -5.4, 5.4);
 
   // update UI posisi floating
   updateUIPosition();

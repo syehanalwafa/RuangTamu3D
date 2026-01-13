@@ -1,0 +1,11 @@
+Model Information:
+* title:	Sillent Hill PT Paintings ( Pack 1 )
+* source:	https://sketchfab.com/3d-models/sillent-hill-pt-paintings-pack-1-6ee883b787de4bff9c68e7eb9c051b3f
+* author:	wand3rer (https://sketchfab.com/wand3rer)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Sillent Hill PT Paintings ( Pack 1 )" (https://sketchfab.com/3d-models/sillent-hill-pt-paintings-pack-1-6ee883b787de4bff9c68e7eb9c051b3f) by wand3rer (https://sketchfab.com/wand3rer) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
